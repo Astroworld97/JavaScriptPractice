@@ -10,14 +10,30 @@ const notes = [{}, {
     body: 'Get a new seat'
 }]
 
-console.log(notes.indexOf({})) //is supposed to check where there is an empty object in the array, pero como usa el "===", el cual busca objetos que son iguales en memoria, te dice que {} no está en el array
+const findNote = function (notes, noteTitle) { //defining a function called findNote
+    return notes.find(function (note, index) { //defining a function called note
+        return note.title.toLowerCase() === noteTitle.toLowerCase()
+    })
+}
 
-const index = notes.findIndex(function (note, index) {
-    console.log(note)
-    return note.title === 'Habits to work on'
-})
+// const findNote = function (notes, noteTitle) { //defining a function called findNote
+//     const index = notes.findIndex(function (note, index) { //defining a function called index
+//         return note.title.toLowerCase() === noteTitle.toLowerCase()
+//     })
+//     return notes[index] //return the note by its index in the notes array
+// }
 
-console.log(index)
+const note = findNote(notes, 'Office modification')
+console.log(note)
+
+//console.log(notes.indexOf({})) //is supposed to check where there is an empty object in the array, pero como usa el "===", el cual busca objetos que son iguales en memoria, te dice que {} no está en el array
+
+// const index = notes.findIndex(function (note, index) {
+//     console.log(note)
+//     return note.title === 'Habits to work on'
+// })
+
+// console.log(index)
 
 // notes.pop() //removes the last item in the array
 // notes.push('My new note') //pushes to the list
