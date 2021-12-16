@@ -1,5 +1,5 @@
 //const notes = ['Note 1', 'Note 2', 'Note 3']
-const notes = [{}, {
+const notes = [{
     title: 'My next trip',
     body: 'I would like to go to Spain'
 }, {
@@ -11,10 +11,23 @@ const notes = [{}, {
 }]
 
 const findNote = function (notes, noteTitle) { //defining a function called findNote
-    return notes.find(function (note, index) { //defining a function called note
+    const index = notes.find(function (note, index) {
         return note.title.toLowerCase() === noteTitle.toLowerCase()
     })
 }
+
+const findNotes = function (notes, query) { //returns the note where either the title or the body has a substring that matches the query in lower case
+    const filteredNotes = notes.filter(function (note, index) {
+        const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+        const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+        return isTitleMatch || isBodyMatch
+    })
+    return filteredNotes
+}
+
+console.log(findNotes(notes, 'work'))
+
+// console.log(filteredNotes)
 
 // const findNote = function (notes, noteTitle) { //defining a function called findNote
 //     const index = notes.findIndex(function (note, index) { //defining a function called index
@@ -23,8 +36,8 @@ const findNote = function (notes, noteTitle) { //defining a function called find
 //     return notes[index] //return the note by its index in the notes array
 // }
 
-const note = findNote(notes, 'Office modification')
-console.log(note)
+// const note = findNote(notes, 'Office modification')
+// console.log(note)
 
 //console.log(notes.indexOf({})) //is supposed to check where there is an empty object in the array, pero como usa el "===", el cual busca objetos que son iguales en memoria, te dice que {} no está en el array
 

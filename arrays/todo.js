@@ -5,7 +5,7 @@
 
 const todos = [{ //array of objects
     text: 'Order cat food',
-    completed: true
+    completed: false
 }, {
     text: 'Clean kitchen',
     completed: true
@@ -14,7 +14,7 @@ const todos = [{ //array of objects
     completed: true
 }, {
     text: 'Do work',
-    completed: true
+    completed: false
 }, {
     text: 'Exercise',
     completed: true
@@ -29,11 +29,20 @@ const deleteTodo = function (todos, todoText) {
     }
 }
 
+const getThingsToDo = function (todos) {
+    const filteredTodos = todos.filter(function (todo) {
+        return todo.completed === false
+    })
+    return filteredTodos
+}
+
+console.log(getThingsToDo(todos))
+
 //1. convert array to array of objects-> text, completed
 //2. create fxn to remove a todo by text value
 
-deleteTodo(todos, 'buy food')
-console.log(todos)
+// deleteTodo(todos, 'buy food')
+// console.log(todos)
 
 
 // //Delete the 3rd item
