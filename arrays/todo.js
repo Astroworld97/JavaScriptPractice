@@ -36,7 +36,22 @@ const getThingsToDo = function (todos) {
     return filteredTodos
 }
 
-console.log(getThingsToDo(todos))
+const sortTodos = function (todos) {
+    todos.sort(function (a, b) {
+        if (!a.completed && b.completed) {
+            return -1
+        } else if (a.completed && !b.completed) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
+sortTodos(todos)
+console.log(todos)
+
+//console.log(getThingsToDo(todos))
 
 //1. convert array to array of objects-> text, completed
 //2. create fxn to remove a todo by text value
