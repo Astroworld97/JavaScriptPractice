@@ -39,8 +39,12 @@ for (let i = 0; i < todos.length; i++) {
 }
 
 //Listen for new todo creation
-document.querySelector('button').addEventListener('click', function(e){
+document.querySelector('#add-todo').addEventListener('click', function(e){
     console.log('Adding a new todo ')
+})
+
+document.querySelector('#new-todo').addEventListener('input', function(e){
+    console.log(e.target.value)
 })
 // const uncompletedCount = document.createElement('p')
 // uncompletedCount.textContent = `You have ${uncompletedCounter} todos left`
