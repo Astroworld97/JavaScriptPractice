@@ -33,14 +33,13 @@ document.querySelector('#create-note').addEventListener('click', function(e){ //
     e.target.textContent = 'The button was clicked' //changes the text of the actual button
 })
 
-document.querySelector('#remove-all').addEventListener('click', function(e){ //selects the button with index 1, i.e. the second button
-    document.querySelectorAll('.note').forEach(function(note){
-        note.remove()
-    })
-})
-
 document.querySelector('#search-text').addEventListener('input', function(e){
     filters.searchText = e.target.value
     renderNotes(notes, filters)
 })
 
+document.querySelector('#name-form').addEventListener('submit', function(e){
+    e.preventDefault()
+    console.log(e.target.elements.firstName.value)
+    e.target.elements.firstName.value = ''
+})
